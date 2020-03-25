@@ -1,14 +1,11 @@
-import { MatchResults } from './MatchResults';
 import { dateStringToDate } from './utils';
-
+// import {MatchData} from
 interface DataReader {
     read(): void;
     data: string[][];
 }
 
 // tuple annotation
-
-type MatchData = [Date, string, string, number, number, MatchResults, string];
 
 export class MatchReader {
     matches: MatchData[] = [];
