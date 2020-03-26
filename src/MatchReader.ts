@@ -1,5 +1,8 @@
 import { dateStringToDate } from './utils';
-// import {MatchData} from
+import { MatchData } from './MatchData'; // the interface for input data
+import { MatchResults } from './MatchResults'; // enum
+import { CsvFileReader } from './CsvFileReader';
+
 interface DataReader {
     read(): void;
     data: string[][];
@@ -8,6 +11,10 @@ interface DataReader {
 // tuple annotation
 
 export class MatchReader {
+    static fromCsv(filename: string): MatchReader {
+        return new MatchReader(new CsvFileReader(filename)); //return to its self
+    }
+
     matches: MatchData[] = [];
 
     constructor(public reader: DataReader) {}
